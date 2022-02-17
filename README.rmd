@@ -7,7 +7,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-packages <- c("data.table", "tidyverse", "skimr", "here", "knitr", "kableExtra")
+packages <- c("here", "knitr", "kableExtra")
 
 for (package in packages) {
   if (!require(package, character.only = T, quietly = T)) {
