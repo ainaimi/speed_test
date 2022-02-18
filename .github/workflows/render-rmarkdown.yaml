@@ -10,8 +10,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Checkout r
         uses: r-lib/actions/setup-r@v1
+      - name: Checkout pandoc
         uses: r-lib/actions/setup-pandoc@v1
+      - name: Checkout tex
         uses: r-lib/actions/setup-tinytex@v1
       
       - name: Install rmarkdown
