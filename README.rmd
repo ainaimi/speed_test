@@ -1,3 +1,5 @@
+
+
 ```{r setup, include=FALSE, warning=F, message=F}
 packages <- c("here", "tidyverse", "knitr", "kableExtra")
 
@@ -32,7 +34,7 @@ mbm1 <- as_tibble(mbm1) %>%
 
 ---
 
-<br><br><br><br>
+<br><br><br>
 
 ### Test on 2020 MBP M1, 16 GB RAM
 ```{r, echo=F, warning=F, message=F}
