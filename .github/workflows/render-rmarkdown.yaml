@@ -1,7 +1,8 @@
 on:
   push:
-    paths: 
-      - ./README.rmd
+    branches: master
+      paths: 
+        - ./README.rmd
 
 name: render README
 
