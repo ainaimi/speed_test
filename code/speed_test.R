@@ -1,4 +1,4 @@
-packages <- c("microbenchmark", "here", "MatchIt", "splines", "boot", "parallel")
+packages <- c("microbenchmark", "tidyverse", "here", "MatchIt", "splines", "boot", "parallel")
 
 for (package in packages) {
   if (!require(package, character.only = T, quietly = T)) {
@@ -52,4 +52,4 @@ mbm1 <- microbenchmark(
     times = 25
     )
 
-saveRDS(mbm1, file = "../data/speed_benchmark.rds")
+saveRDS(mbm1, file = here("data","speed_benchmark.rds"))
