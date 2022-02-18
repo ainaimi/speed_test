@@ -41,10 +41,10 @@ med_func <- function(){
 
 mbm1 <- microbenchmark(
     "bootstrap 1 core" = {
-        boot_res <- boot(lalonde, ate_func, R = 1000)
+        boot_res <- boot(lalonde, seed=123, ate_func, R = 1000)
     },
     "bootstrap parallel cores" = {
-        boot_res <- boot(lalonde, ate_func, R = 1000, parallel = paral, ncpus = detectCores())
+        boot_res <- boot(lalonde, seed=123, ate_func, R = 1000, parallel = paral, ncpus = detectCores())
     },
     "column medians" = {
         col_med <- med_func()
