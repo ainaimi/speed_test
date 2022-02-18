@@ -1,8 +1,8 @@
-name: render README
-
 on:
   push:
     branches: master
+
+name: render README
 
 jobs:
   render-rmarkdown:
