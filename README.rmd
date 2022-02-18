@@ -1,13 +1,9 @@
 ---
-title: "Speed Test"
-author: "Ashley I Naimi"
-date: "`r format(Sys.Date(), '%Y')"
-urlcolor: blue
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-packages <- c("here", "knitr", "kableExtra")
+```{r setup, include=FALSE, warning=F, message=F}
+packages <- c("here", "tidyverse", "knitr", "kableExtra")
 
 for (package in packages) {
   if (!require(package, character.only = T, quietly = T)) {
@@ -18,17 +14,35 @@ for (package in packages) {
 for (package in packages) {
   library(package, character.only = T)
 }
-
-mbm1 <- readRDS(file = "../data/speed_benchmark.rds")
 ```
 
 # Speed Testing
 
 This repo is a work in progress. Contains code I use to speed test functions on different computers.
 
-```{r}
-mbm1_table <- knitr::kable(summary(mbm1), caption = "This is the table caption") %>%
-                        footnote(c("hello, this is footnote 1", "hello, this is footnote 2"))
+```{r, echo=F, warning=F, message=F}
 
-print(mbm1_table)
+mbm1 <- readRDS(file = here("data","speed_benchmark.rds"))
+
+mbm1 <- as_tibble(mbm1) %>%
+  rename(Test=expr) %>% 
+  group_by(Test) %>%
+  summarize(Min = min(time)/1e9,
+            Mean = mean(time)/1e9,
+            Median = median(time)/1e9,
+            Max = max(time)/1e9,
+            N = n())
 ```
+
+---
+
+<br><br><br><br>
+
+### Test on 2020 MBP M1, 16 GB RAM
+```{r, echo=F, warning=F, message=F}
+knitr::kable(mbm1, 
+             digits = 2, 
+             align = "lccccc",
+             "pipe")
+```
+
