@@ -1,6 +1,3 @@
----
-output: html_document
----
 
 ```{r setup, include=FALSE, warning=F, message=F}
 packages <- c("here", "tidyverse", "knitr", "kableExtra")
